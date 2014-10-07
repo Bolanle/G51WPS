@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><title>Home | Quizzer</title>
+<style type="text/css">
+
+body {
+	background:black;
+	color:#800880;
+	font-family: Verdana, Arial, sans-serif; }
+#wrap {		
+		width:1200px;
+		margin:0 auto;
+		background:black;
+		opacity:0.95;
+	        filter:alpha(opacity=60);
+	}
+#header {
+    	padding:2px 10px;	
+	text-align:center;
+	}
+#sidebar {
+	
+	text-align:left;
+	}
+#footer {
+	margin:0;
+	text-align:center;
+	font-size: xx-small;
+	}
+#background {
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    left: 0px; 
+    top: 0px; 
+    z-index: 0;
+}
+
+.stretch {
+    width:100%;
+    height:100%;
+}
+
+</style>
+<script type="text/javascript">
+function Survey() {
+var total = 0;
+for ( i = 0; i < document.MyForm.question_one.length; i++) {
+    if (document.MyForm.question_one[i].checked) total = parseInt(document.MyForm.question_one[i].value);
+}
+var total = 0;
+for ( i = 0; i < document.MyForm.question_one.length; i++) {
+    if (document.MyForm.question_one[i].checked) total = total + parseInt(document.MyForm.question_one[i].value);
+}
+for ( i = 0; i < document.MyForm.question_two.length; i++) {
+    if (document.MyForm.question_two[i].checked) total = total + parseInt(document.MyForm.question_two[i].value);
+}
+for ( i = 0; i < document.MyForm.question_three.length; i++) {
+    if (document.MyForm.question_three[i].checked) total = total + parseInt(document.MyForm.question_three[i].value);
+}
+for ( i = 0; i < document.MyForm.question_four.length; i++) {
+    if (document.MyForm.question_four[i].checked) total = total + parseInt(document.MyForm.question_four[i].value);
+}
+for ( i = 0; i < document.MyForm.question_five.length; i++) {
+    if (document.MyForm.question_five[i].checked) total = total + parseInt(document.MyForm.question_five[i].value);
+}
+for ( i = 0; i < document.MyForm.question_six.length; i++) {
+    if (document.MyForm.question_six[i].checked) total =total + parseInt(document.MyForm.question_six[i].value);
+}
+for ( i = 0; i < document.MyForm.question_seven.length; i++) {
+    if (document.MyForm.question_seven[i].checked) total = total + parseInt(document.MyForm.question_seven[i].value);
+}
+for ( i = 0; i < document.MyForm.question_eight.length; i++) {
+    if (document.MyForm.question_eight[i].checked) total = total + parseInt(document.MyForm.question_eight[i].value);
+}
+if (total > 0 && total < 15){
+document.getElementById("p1").innerHTML= "You are not Evil at all. Are you sure you are on the right website? Go and look at dolls or something"; 
+document.getElementById("p1").style.color="red";
+}
+if ( total > 14 && total < 21) {
+document.getElementById("p1").innerHTML= "You aren't VERY Evil.";
+document.getElementById("p1").style.color="blue";
+}
+if ( total > 20 && total < 27) {
+document.getElementById("p1").innerHTML= "You are on your way to Evilville. Not quite there yet though";
+document.getElementById("p1").style.color="yellow";
+}
+if ( total > 26 && total < 33) {
+document.getElementById("p1").innerHTML= "You, SIR are extremely Evil.";
+document.getElementById("p1").style.color="green";
+}
+}
+</script>
+</head>
+<body>
+<div id="background">
+    <img src="dark.jpg" class="stretch" alt="" />
+</div>
+ <div id="wrap"> 
+ <div id="header"><img src="Logo.png" style="float:center;"> </div>
+ <hr>
+ <div id="sidebar">
+ <h2>
+  <p style="text-indent:20em;">How Evil Are You?</p></h2>
+ <p id="p1" class = "centre">
+ Please fill in the questionnaire:</p></br>
+ <form name= MyForm>
+ What super-power do you wish to have the most: <br>
+ <input type="radio" name="question_one" value="1"/> Telempathy<br/>
+ <input type="radio" name="question_one" value="2"/> Ability to fly<br/>
+ <input type="radio" name="question_one" value="3"/> Ability to read minds<br/>
+ <input type="radio" name="question_one" value="4"/> Ability to kill<br/>
+ <br>
+ What would be a valid reason to kill: <br>
+ <input type="radio" name="question_two" value="1"/> Mental Illness<br/>
+ <input type="radio" name="question_two" value ="2"/> Defence<br/>
+ <input type="radio" name="question_two" value ="3"/> Gang war<br/>
+ <input type="radio" name="question_two" value ="4"/> Felt like it<br/>
+ <br>
+ What do you think would be the best way to gain respect: <br>
+ <input type="radio" name="question_three" value="1"/> Integrity<br/>
+ <input type="radio" name="question_three" value ="2"/> Work hard<br/>
+ <input type="radio" name="question_three"value ="3"/> Intimidate EVERYONE<br/>
+ <input type="radio" name="question_three" value ="4"/> Crush anyone in your path<br/>
+ 
+ <br>
+  What would be the best way to get what you want: <br>
+ <input type="radio" name="question_four" value="1"/> Work for it<br/>
+ <input type="radio" name="question_four" value ="2"/> Be charming and friendly<br/>
+ <input type="radio" name="question_four" value ="3"/> Fight for it<br/>
+ <input type="radio" name="question_four" value ="4"/> Kill for it<br>
+ <br>
+ Religion is: <br>
+ <input type="radio" name="question_five" value="1"/> A way to interact with God<br/>
+ <input type="radio" name="question_five" value ="2"/> Something man created to comfort himself<br/>
+ <input type="radio" name="question_five" value ="3"/> Whatever<br/>
+ <input type="radio" name="question_five" value ="4"/> Absolutely nonsense<br>
+ <br>
+ What is the best way to kill a man: <br>
+ <input type="radio" name="question_six" value="1"/> Slice his head off<br/>
+ <input type="radio" name="question_six" value ="2"/> Suffocate him with a pillow<br/>
+ <input type="radio" name="question_six" value ="3"/> Poison him<br/>
+ <input type="radio" name="question_six" value ="4"/> Fry him in oil<br>
+ <br>
+ What type of people are best to be around: <br>
+ <input type="radio" name="question_seven" value="1"/> Friends and Family<br/>
+ <input type="radio" name="question_seven" value ="2"/> Sycophants- They feed your ego<br/>
+ <input type="radio" name="question_seven" value ="3"/> Idiots- they don't bother you<br/>
+ <input type="radio" name="question_seven" value ="4"/> Jealous people- Wait till they cross you. You will Anihilate them at once!<br>
+ <br>
+ If you were the president of the United States what would be the first order you would make: <br>
+ <input type="radio" name="question_eight" value="1"/> Increase unemployment grant<br/>
+ <input type="radio" name="question_eight" value ="2"/> Increase taxes<br/>
+ <input type="radio" name="question_eight" value ="3"/> Increase the worth of the dollar<br/>
+ <input type="radio" name="question_eight" value ="4"/> Send your army to Afghanistan, they dared cross you in 2001<br>
+ 
+	 <input type="button" name="Checker" value="Submit" onclick="Survey()"  style="color:#800880;">
+ </form>
+ 
+</div>
+<hr>
+ <div id="footer">
+ Your ticket to world domination!<br>
+ Copyright<sup>&copy;</sup> 2012 G51 Villian Supply
+ </div>
+ </div>
+ </body>
+ </html>

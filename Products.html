@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">   
+<head><title>Products</title>
+<style type="text/css">
+body {
+	background:black;
+	color:#800880;
+	font-family: Verdana, Arial, sans-serif; }
+#wrap {		
+		width:1200px;
+		margin:0 auto;
+		background:black;
+		opacity:0.95;
+	        filter:alpha(opacity=60);
+	}
+#header {
+    	padding:2px 10px;	
+	text-align:center;
+	}
+#sidebar {
+	
+	
+	text-align:left;
+	}
+#footer {
+	margin:0;
+	text-align:center;
+	font-size: xx-small;
+	}
+#background {
+    width: 100%; 
+    height: 100%; 
+    position: absolute;
+    left: 0px; 
+    top: 0px; 
+    z-index: 0;
+}
+
+.stretch {
+    width:100%;
+    height:100%;
+}
+
+
+div.background
+{
+width:480px;
+height:300px;
+background:url(whiteroom.jpg) repeat;
+}
+div.transbox
+{
+width:480px;
+height:300px;
+
+opacity:0.4;
+filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+</style>
+ <script type="text/javascript">
+	var doChange = true;
+	function read(clicker){
+	
+	if (clicker){
+	document.getElementById("reado").innerHTML="Specify your Range:";
+	doChange= true;
+	}
+	else{
+	document.getElementById("reado").innerHTML="Specify the amount:";
+	doChnage = false;
+	}
+	}
+	function calc() {
+	if (doChange) {
+	var reading = parseInt(document.getElementById("reading").value);
+	solution = (reading * 5000)/ 20;
+	document.getElementById("p3").innerHTML= "Amount needed: £"+ (solution);
+	}
+	else {
+	var reading = parseInt(document.getElementById("reading").value);
+	solution = (reading * 20 ) / 5000;
+	document.getElementById("p3").innerHTML= "Range capacity: "+ (solution);
+	}
+	}
+	var count = true;
+	function change(clicker){
+	
+	if (clicker){
+	document.getElementById("p1").innerHTML="How long do you want this to operate for?";
+	count = true;
+	
+	}
+	else{
+	document.getElementById("p1").innerHTML="What's your number of target hosts";
+	count= false;
+	}
+	}
+	
+	function checker() {
+	seed = 1;
+	if (count) {
+	var number = parseInt(document.getElementById ("number").value);
+	var operate = parseInt(document.getElementById("operate").value);
+	var varray = new Array();
+	varray.push(1);
+	varray.push(1);
+	target = 2;
+	var operate = operate/ 10;	
+	if (operate == 1) {
+	target = 1;
+	}
+	var j = 2;
+	for(i = 0; i < (operate-2); i++) {
+	value = varray[j - 1] + varray[j - 2];
+	varray.push(value);
+	target += value;
+	j++;
+	}
+	result = target * number;
+	document.getElementById("p2").innerHTML= "Number of hosts infected: "+ (result)+ " target hosts";
+	}
+	else {
+	var number = parseInt(document.getElementById ("number").value);
+	var operate = parseInt(document.getElementById("operate").value);
+	if(number > operate) {
+	alert("Number of initial hosts is greater then number of final hosts");
+	}
+	time = 0;
+	for(i = 0; i < operate; i++) {
+	time = time + 10;
+	}
+	result = time / number;
+	document.getElementById("p2").innerHTML="Number of minutes: " + Math.round(result) + "minutes";
+	}
+	}
+	function changeColor_one() {
+	document.getElementById("colour").style.background="#FF0099";
+	}
+	function changeColor_two() {
+	document.getElementById("colour").style.background="#FF3E96";
+	}
+	
+	function changeColor_three(){
+	document.getElementById("colour").style.background="#FF66FF";
+	}
+	function changeColor_four(){
+	document.getElementById("colour").style.background="#CC00FF";
+	}
+	function changeColor_five(){
+	document.getElementById("colour").style.background="#9900FF";
+	}
+	
+ </script>
+ </script>
+ </head>
+<body>
+<div id="background">
+    <img src="dark.jpg" class="stretch" alt=""/>
+</div>
+<div id="wrap">
+ <div id="header"><img src="Logo.png" style="float:center;"></div>
+<hr>
+<div id="sidebar">
+<h2>
+  <p style="text-indent:20em;">Products</p></h2>
+
+<h2>Doomsday Computer Virus</h2>
+<p> This product is simply a virus which infects the host computer. It makes all host computers display images of essentially-stupid celebrities and play awful music - at the time specified. The computers 
+will explode when all of this is done. 
+</p>
+Activation time: 
+<input type="time" style="color:#FFFFFF; background-color:#800880;"></br>
+Computers you planning on infecting at the same time: 
+<input type="text" name="number_of_comp" id="number" style="color:#FFFFFF; background-color:#800880;"></br>
+ Rate by Time or by Target Hosts:
+ <input type="button" value="Time" onclick="change(true)" style="color:#800880;">
+  <input type="button" value="Target" onclick="change(false)" style="color:#800880;">
+<p id="p1"></p>
+<input type="text" name="operate" id="operate" onChange="checker()" style="color:#FFFFFF; background-color:#800880;"></br>
+<p id="p2">
+ </p>
+ 
+ <h2>The Read-a-Mind-o-Nator</h2>
+ <p>
+ This product does exactly what it suggests. It reads the minds of people. We have the read-a-mind-o-nator in various ranges. If you would please fill in the range you want 
+ or now much  you are willing to spend, our system will calculate for you how much it would cost for your specified range or the range you will be able to achieve with 
+ the amount of resources you give us. </p>
+ Rate by Range or Cost:
+  <input type="button" value="Range" onclick="read(true)"  style="color:#800880;">
+   <input type="button" value="Cost" onclick="read(false)"  style="color:#800880;">
+ <p id="reado"></p>
+ <input type="text" name="reading" id="reading" onChange="calc()" style="color:#FFFFFF; background-color:#800880;"></br>
+ <p id="p3">
+ </p>
+ <h2> The Time Traveller </h2>
+ <p>
+ The time traveller is a special device made by G51 Villain Supply which helps its users travel back in time in a safe environment - that is travellign without altering
+ th very make-up of time and space. Due to the high level of caution needed when using the device and its cost of production, the price tag is very high even though the device is a 
+ one-time-only device. That means it only works one time. The device is generally used by millionaires above the age of 65 who want to relive their youth-literally. 
+ <font color ="red"><h6>Unfortunately, due to protests about the high-risk level, production has been discontinued at the moment. </h6></font>
+ </p>
+ <h2>The turn-everything-pink-o-matic</h2>
+ <div class="background" >
+<div class="transbox" style="background-color:#FF3E96;" id="colour">
+</div>
+</div>
+<br>
+You can pick how pink you want it to be by picking either of these buttons: <br>
+
+<input type="button" value="Lightest"  onClick="changeColor_three()">
+<input type="button" value="Lighter"  onClick="changeColor_one()">
+<input type="button" value="Neutral"  onClick="changeColor_two()">
+<input type="button" value="Darker"  onClick= "changeColor_four()">
+<input type="button" value="Darkest"  onClick= "changeColor_five()">
+
+<h2> The De-Animator-Animator </h2>
+This device quite simply turns animate objects inanimate and inanimate objects animate. It must be noted that only living objects can be re-animated. Non-living objects cannot be 
+animated. It's quite useful when the words "Shut up" are ineffective. You'd simply turn on the device and inanimate the blabberers. Don't forget to animate them back!
+
+</div>
+<hr>
+<div id="footer">
+ Your ticket to world domination!<br>
+ Copyright <sup>&copy;</sup> 2012 G51 Villian Supply
+ </div>
+</div>
+</body>
+</html>
